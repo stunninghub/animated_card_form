@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Form</title>
+   <style>
+      body{
+         background:linear-gradient(to bottom, royalblue,purple);
+         justify-content: center;
+         align-items: center;
+         display: flex;
+         min-height: 100vh;
+         font-family: Arial, Helvetica, sans-serif;
+         perspective: 100vh;
+      }
+      .loginForm{
+         width:320px;
+         height:450px;
+         background:#fff;
+         border-radius:20px;
+         box-shadow: 30px 40px 50px rgba(0,0,0,0.2);
+         transform-style: preserve-3d;
+         transition:all 1s;
+         position:relative;
+      }
+      .frontSide, .backSide{
+         position:absolute;
+         width:100%;
+         height:100%;
+         top:0px;
+         -webkit-backface-visibility: hidden;
+         backface-visibility: hidden;
+         justify-content: center;
+         align-items: center;
+         display: flex;
+      }
+      .backSide{
+         transform:rotateY(180deg);
+      }
+      .content{
+         padding:25px;
+         text-align: center;
+      }
+      .sh_btn, .sh_input{
+         padding:10px 20px;
+         border-radius:50px;
+         box-shadow: 1px 2px 5px rgba(0,0,0,0.2);
+      }
+      .sh_btn{
+         background:royalblue;
+         width:100%;
+         border:0px;
+         color:#fff;
+         margin-top:20px;
+         cursor: pointer;
+      }
+      .sh_input{
+         border:2px solid rgba(0,0,0,0.1);
+         outline:none;
+      }
+      .cancel_btn{
+         background:#ddd;
+         color:#333;
+      }
+      a{
+         color:dodgerblue;
+         font-size:12px;
+         text-decoration:none;
+      }
+   </style>
+</head>
+<body>
+   <div class="loginForm">
+      <div class="frontSide">
+         <div class="content">
+            <h1>Welcome !!</h1>
+            <p>Log into your account to access the features.</p>
+            <button class="sh_btn" onclick="loginCard();">Login</button>
+         </div>
+      </div>
+
+      <div class="backSide">
+         <div class="content">
+            <h1>Login</h1><br><br>
+            <input type="text" name="username" id="username" class="sh_input" placeholder="Username" autocomplete="off"><br><br>
+            <input type="password" name="password" id="password" class="sh_input" placeholder="Password" autocomplete="off"><br><br>
+
+            <button class="sh_btn">Login</button><br>
+            <button class="sh_btn cancel_btn" onclick="cancelCard();">Cancel</button><br><br>
+            <a href="#" class="sh_link">Forget password?</a>
+         </div>
+      </div>
+   </div>
+
+   <script>
+      function loginCard(){
+         var loginForm = document.querySelector('.loginForm');
+
+         loginForm.style.transform = "rotateY(180deg)";
+         loginForm.style.boxShadow = "-30px 40px 50px rgba(0,0,0,0.2)";
+      }
+
+      function cancelCard(){
+         var loginForm = document.querySelector('.loginForm');
+
+         loginForm.style.transform = "rotateY(0deg)";
+         loginForm.style.boxShadow = "30px 40px 50px rgba(0,0,0,0.2)";
+      }
+   </script>
+</body>
+</html>
